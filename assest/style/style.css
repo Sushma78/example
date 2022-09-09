@@ -84,3 +84,9 @@ body {
     font-weight: 400;
     text-decoration: none;
 }
+
+.errorMessage {
+    text-align: center;
+    color: red;
+
+}

@@ -15,7 +15,14 @@ if (isset($_POST["submitButton"])) {
 
     if ($success) {
         //Store Session
+        $_SESSION["userLoggedIn"] = $username;
         header("Location: index.php");
+    }
+}
+function getInputValue($name)
+{
+    if (isset($_POST[$name])) {
+        echo $_POST[$name];
     }
 }
 ?>
@@ -44,7 +51,7 @@ if (isset($_POST["submitButton"])) {
             <form method="POST">
 
                 <?php echo $account->getError(Constants::$loginFailed); ?>
-                <input type="text" name="username" placeholder="User Name" required>
+                <input type="text" name="username" placeholder="UserName" value="<?php getInputValue("username"); ?>" required>
 
 
                 <input type="password" name="password" placeholder="Password" required>
