@@ -9,6 +9,18 @@ class PreviewProvider
         $this->con = $con;
         $this->username = $username;
     }
+
+    public function createTVShowPreviewVideo()
+    {
+        $entitiesArray = EntityProvider::getTVShowEntities($this->con, null, 1);
+
+        if (sizeof($entitiesArray) == 0) {
+            ErrorMessage::show("No TV shows to display");
+        }
+
+        return $this->createPreviewVideo($entitiesArray[0]);
+    }
+
     public function createPreviewVideo($entity)
     {
         if ($entity == null) {
@@ -24,7 +36,16 @@ class PreviewProvider
 
 
 
-        //todo: ADD SUBTITLES
+        $videoId = VideoProvider::getEntityVideoForUser($this->con, $id, $this->username);
+        $video = new Video($this->con, $videoId);
+
+        $inProgress = $video->isInProgress($this->username);
+        $playButtonText = $inProgress ? "Continue Watching" : "Play";
+
+
+        $seasonEpisode = $video->getSeasonAndEpisode();
+        $subHeading = $video->isMovie() ? "" : "<h4>$seasonEpisode</h4>";
+
 
         return "<div class='previewContainer'>
                     <img src='$thumbnail' class='previewImage' hidden>
@@ -36,10 +57,10 @@ class PreviewProvider
                     <div class='previewOverlay'>
                      <div class='mainDetails'>
                      <h3>$name</h3>
-
+                        $subHeading
 
                      <div class='buttons'>
-                     <button><i class='fa-solid fa-circle-play'></i> PLAY</button>
+                     <button onclick='watchVideo($videoId)'><i class='fa-solid fa-circle-play'></i> $playButtonText</button>
                         <button onclick='volumeToggle(this)'><i class='fa-solid fa-volume-xmark'></i></button>
 
 

@@ -8,6 +8,7 @@ require_once("includes/classes/ErrorMessage.php");
 require_once("includes/classes/SeasonProvider.php");
 require_once("includes/classes/Season.php");
 require_once("includes/classes/Video.php");
+require_once("includes/classes/videoProvider.php");
 
 
 if (!isset($_SESSION["userLoggedIn"])) {
@@ -31,3 +32,9 @@ $userLoggedIn = $_SESSION["userLoggedIn"];
 
 <body>
     <div class="wrapper">
+
+        <?php
+        if (!isset($hideNav)) {
+            include_once("includes/navBar.php");
+        }
+        ?>

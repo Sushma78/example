@@ -1,3 +1,8 @@
+$(document).scroll(function () {
+    $(".topBar").toggleClass("scrolled", $(this).scrollTop() > $(".topBar").height());
+});
+
+
 function volumeToggle(button) {
     var mute = $(".previewVideo").prop("muted");
     $(".previewVideo").prop("muted", !mute);
@@ -89,4 +94,18 @@ function setStartTime(videoId, username) {
             $("video").off("canplay");
         })
     })
+}
+
+function restartVideo() {
+    $("video")[0].currentTime = 0;
+    $("video")[0].play();
+    $(".upNext").fadeOut();
+}
+
+function watchVideo(videoId) {
+    window.location.href = "watch.php?id=" + videoId;
+
+}
+function showUpNext() {
+    $(".upNext").fadeIn();
 }
