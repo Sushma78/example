@@ -31,13 +31,12 @@ class VideoProvider
     {
         $query = $con->prepare("SELECT videoId FROM `videoProgress` INNER JOIN videos
                                         ON videoProgress.videoId=videos.id
-                                        WHERE videos.entityId=82
-                                        AND videoProgress.username = 'hello'
+                                        WHERE videos.entityId=:entityId 
+                                        AND videoProgress.username=:username
                                         ORDER BY videoProgress.dateModified DESC
                                         LIMIT 1;");
         $query->bindValue(":entityId", $entityId);
         $query->bindValue(":username", $username);
-
         $query->execute();
 
         if ($query->rowCount() == 0) {
