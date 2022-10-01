@@ -433,3 +433,16 @@ button i {
     color: #fff;
     cursor: pointer;
 }
+
+.alertSuccess,
+.alertError{
+    margin: 10px 0;
+}
+.alertError
+{
+    color: #e50914;
+}
+.alertSuccess
+{
+    color: #2ecc71;
+}

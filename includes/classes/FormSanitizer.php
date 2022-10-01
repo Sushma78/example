@@ -1,5 +1,5 @@
 <?php
-class FromSanitizer
+class FormSanitizer
 {
 
 

@@ -8,8 +8,8 @@ class User
     {
         $this->con = $con;
 
-        $query = $this->con->prepare("SELECT * FROM user WHERE username=:un");
-        $query->bindParam(":un", $username);
+        $query = $con->prepare("SELECT * FROM user WHERE username=:username");
+        $query->bindValue(":username", $username);
         $query->execute();
 
         $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ class User
     }
     public function getLastName()
     {
-        return $this->sqlData["firstName"];
+        return $this->sqlData["lastName"];
     }
     public function getEmail()
     {
