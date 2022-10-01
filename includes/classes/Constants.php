@@ -16,4 +16,5 @@ class Constants
     public static $passwordLength = " Your Password Have Minimum 5 Digits ";
 
     public static $loginFailed = " Your Username or Password Was Incorrect";
+    public static $passwordIncorrect = "Your Old Password is Incorrect";
 }

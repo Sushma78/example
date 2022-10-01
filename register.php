@@ -10,13 +10,13 @@ require_once("includes/classes/PreviewProvider.php");
 $account = new Account($con);
 
 if (isset($_POST["submitButton"])) {
-    $fristName = FromSanitizer::sanitizeFormString($_POST["fristName"]);
-    $lastName = FromSanitizer::sanitizeFormString($_POST["lastName"]);
-    $username = FromSanitizer::sanitizeFormUsername($_POST["username"]);
-    $email = FromSanitizer::sanitizeFormEmail($_POST["email"]);
-    $email2 = FromSanitizer::sanitizeFormEmail($_POST["email2"]);
-    $password = FromSanitizer::sanitizeFormPassword($_POST["password"]);
-    $password2 = FromSanitizer::sanitizeFormPassword($_POST["password2"]);
+    $fristName = FormSanitizer::sanitizeFormString($_POST["fristName"]);
+    $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
+    $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+    $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
+    $email2 = FormSanitizer::sanitizeFormEmail($_POST["email2"]);
+    $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
+    $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
 
     $success = $account->register($fristName, $lastName, $username, $email, $email2, $password, $password2);
