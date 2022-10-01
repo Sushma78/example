@@ -8,8 +8,8 @@ require_once("includes/classes/Account.php");
 $account = new Account($con);
 
 if (isset($_POST["submitButton"])) {
-    $username = FromSanitizer::sanitizeFormUsername($_POST["username"]);
-    $password = FromSanitizer::sanitizeFormPassword($_POST["password"]);
+    $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+    $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
 
     $success = $account->login($username, $password);
 
