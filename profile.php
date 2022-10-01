@@ -1,13 +1,24 @@
 <?php
 require_once("includes/header.php");
+require_once("includes/classes/Account.php");
 ?>
-<div class="settingContainer column">
+<div class="settingsContainer column">
     <div class="formSection">
         <form method="POST">
             <h2>User Details</h2>
-            <input type="text" name="firstName" placeholder="First Name">
-            <input type="text" name="lastName" placeholder="Last Name">
-            <input type="text" name="email" placeholder="Email">
+
+            <?php
+            $user = new User($con, $userLoggedIn);
+
+            $firstName = isset($_POST["firstName"]) ? $_POST["firstName"] : $user->getFirstName();
+            $lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : $user->getLastName();
+            $email = isset($_POST["email"]) ? $_POST["email"] : $user->getEmail();
+
+            ?>
+
+            <input type="text" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>">
+            <input type="text" name="lastName" placeholder="Last Name" value="<?php echo $lastName; ?>">
+            <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
 
             <input type="submit" name="saveDetailsButton" value="Save">
 

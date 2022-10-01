@@ -385,3 +385,51 @@ button i {
     padding: 5px 10px;
     border-radius: 3px;
 }
+
+.settingsContainer {
+    background-color: transparent;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 60px;
+}
+
+.settingsContainer h2{
+    color: #fff;
+    margin-top: 0;
+   
+}
+
+.settingsContainer .formSection{
+    display: flex;
+    flex-direction: column;
+    margin:20px 0;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+}
+
+.settingsContainer form input[type="text"],
+.settingsContainer form input[type="email"],
+.settingsContainer form input[type="password"]{
+    width: 300px;
+    height: 40px;
+    font-size: 15px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 3px;
+    padding: 0 5px;
+
+}
+
+.settingsContainer form input[type="submit"]{
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 3px;
+    padding: 0 5px;
+    background-color: #e50914;
+    color: #fff;
+    cursor: pointer;
+}
