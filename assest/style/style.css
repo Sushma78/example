@@ -67,7 +67,7 @@ a {
 }
 
 .column form input[type="submit"] {
-    background-color: #4285f4;
+    background-color: #dc1f1f;
     color: #fff;
     height: 36px;
     width: 88px;
@@ -103,6 +103,7 @@ a {
 }
 
 .signInMessage {
+    color: #dc1f1f;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
@@ -110,7 +111,7 @@ a {
 
 .errorMessage {
     text-align: center;
-    color: red;
+    color: rgb(232, 0, 0);
     font-size: 14px;
     font-weight: 400;
 
